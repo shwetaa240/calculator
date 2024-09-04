@@ -1,0 +1,165 @@
+<!-- type html then hit tab to generate boiler plate -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculator</title>
+	<style>
+     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+ <div class="calculator" align="center">
+	<div class="text1">
+     <input type="text" placeholder="0" name="t1" id="t1">
+    </div>
+ <div class="buttons" style="display:table;">
+    <div>
+    	<button onclick()="a1">AC</button>
+    	<button onclick()="a1">DEL</button>  
+    	<button onclick()="a1">%</button>    
+    	<button onclick()="a1" class="r">/</button>
+    </div>
+    <div>
+    	<button onclick()="a7">7</button>
+    	<button onclick()="a8">8</button>  
+    	<button onclick()="a9">9</button>    
+    	<button onclick()="*" class="r">x</button>
+    </div>   
+    <div>
+    	<button>4</button>
+    	<button>5</button> 
+    	<button>6</button>    
+    	<button class="r">–</button>
+    </div>    
+    <div>
+    	<button>1</button>
+    	<button>2</button>
+    	<button>3</button>    
+    	<button class="r">+</button>
+    </div>
+    <div>
+    	<button>.</button>
+    	<button>0</button>  
+    	<button>00</button>    
+    	<button class="r">=</button>
+    </div>
+</div>
+</body>
+
+<style>
+*
+{
+ margin:0;
+ padding:0;
+ font-family: "Noto Sans", sans-serif;
+ box-sizing:border-box;
+}
+body
+{
+	width:100%;
+	height:100vh;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+/*	background:linear-gradient(black,blue,green);*/
+    background-image:url(calcii.png);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.calculator
+{
+	margin: 0 auto;
+    width:20%;
+	padding:10px;
+	border:1px solid #1e2684;
+	border-radius:6px;
+	background-color:#090d40; /* transparent;*/
+	box-shadow: 8px 9px 10px rgba(255, 255, 255, 0.1),-5px -5px 8px rgba(0,0,0,.2);  /*left bottom and shade effect color*/
+}
+input
+{
+	border-radius: 6px;
+    border:1px solid #1e2684;
+	width:100%;
+	color:white;
+	padding:20px 10px;
+	margin-bottom:10px;
+	text-align:right;
+	font-size:23px;
+	cursor:pointer;
+}
+input::placeholder
+{
+	color:white;
+}
+.text1 input
+{
+	background-color:#424242;          /*#1e2684;#303aa4; #424ba7;*/
+}
+.buttons
+{
+	width:100%;	
+}
+button{
+ margin-bottom:10px;
+ margin-right:5px;
+ height:40px;
+ width:40px;
+ border-radius:50%;
+ border:none;
+ font-weight:500;
+ font-size:15px;
+ color:white;
+ background-image:linear-gradient(28deg,#CC33FF,#9b30c4,#315bfd);
+ box-shadow:-4px -4px 6px rgba(253, 255, 254, 0.2),3px 3px 5px rgba(70,10,0,0.3);
+ cursor: pointer;
+}
+.r
+{
+ background-image:linear-gradient(28deg,#6bf1fd,#1ad4f9);
+ font-size:18px;
+}
+
+
+</style>
+
+<script>
+	let inp=document.getElementById('t1');
+	let buttons=document.querySelectorAll('button');
+	let string="";
+	let arr=Array.from(buttons);
+	arr.forEach(button =>{
+	 button.addEventListener('click',(e) =>{
+		if(e.target.innerHTML == '=')
+		{
+			string= eval(string);
+			inp.value=string;
+		}
+		// else if(e.target.innerHTML =='&sup2;')
+		// {
+		// 	string=string;
+		// 	inp.value=0;
+		// }
+		else if(e.target.innerHTML =='AC')
+		{
+			string="";
+			inp.value=0;
+		}
+		else if(e.target.innerHTML== 'DEL')
+		{
+			string=string.substring(0,string.length-1);
+			inp.value=string;
+		}
+		else{
+		string +=e.target.innerHTML;
+		inp.value=string;
+	    }
+	})
+
+	})
+	
+</script>
+
+</html>
